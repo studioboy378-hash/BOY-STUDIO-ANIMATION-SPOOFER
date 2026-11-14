@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOY STUDIO — Animation Spoofer</title>
+<style>
+:root{--bg:#090a0e;--panel:#11131a;--panel2:#171a22;--line:#292d38;--silver:#e7e9ef;--muted:#9299a8;--accent:#c7cbd5;--white:#fff;--good:#a8d7bd;--bad:#f0a5a5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#343946 0,transparent 38%),linear-gradient(135deg,#090a0e,#101219 55%,#08090d);color:var(--silver);font:14px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input,textarea{font:inherit}.wrap{max-width:1180px;margin:auto;padding:24px 20px 55px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.brand{display:flex;align-items:center;gap:13px}.mark{width:42px;height:42px;border:1px solid #737987;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#f2f3f6,#777e8d);color:#11131a;font-weight:900;font-size:17px;box-shadow:0 5px 24px #0008}.brand b{letter-spacing:.18em;font-size:14px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.2em;margin-top:2px}
+.pill{border:1px solid #4b5260;border-radius:99px;padding:7px 12px;color:#cbd0d9;font-size:10px;letter-spacing:.13em}.hero{padding:36px 0 25px}.eyebrow{color:#aeb4c1;font-size:10px;letter-spacing:.28em;font-weight:700}.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.04;letter-spacing:-.045em;margin:12px 0;color:#f3f4f7}.hero h1 span{color:#9da4b2}.hero p{max-width:680px;color:var(--muted);margin:0}
+.layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.75fr);gap:18px}.card{background:linear-gradient(160deg,#171a22,#101219);border:1px solid var(--line);border-radius:18px;padding:21px;box-shadow:0 18px 55px #0004}.card h2{font-size:13px;letter-spacing:.15em;margin:0 0 5px}.sub{color:var(--muted);font-size:12px;margin:0 0 18px}
+label{display:block;color:#cbd0da;font-size:11px;font-weight:700;letter-spacing:.08em;margin:15px 0 8px}textarea,input{width:100%;background:#090b10;border:1px solid #303542;border-radius:11px;padding:13px 14px;color:#f1f2f5;outline:none;font:13px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}textarea{min-height:140px;resize:vertical}textarea:focus,input:focus{border-color:#9ca4b3;box-shadow:0 0 0 3px #aab1c014}
+.row{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid #596171;border-radius:10px;padding:10px 14px;background:#dfe2e9;color:#11141b;font-weight:800;letter-spacing:.04em;cursor:pointer}.btn.secondary{background:#1b1f29;color:#d9dde5;border-color:#363c49}.btn.danger{background:#311b20;color:#f2c4c4;border-color:#69414a}.btn:disabled{opacity:.45;cursor:not-allowed}.hint{color:#858d9d;font-size:11px;margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}.stat{background:#0c0e14;border:1px solid #292e39;border-radius:11px;padding:12px}.stat b{display:block;font-size:21px}.stat span{font-size:9px;color:var(--muted);letter-spacing:.13em}
+.drop{border:1px dashed #555d6d;border-radius:12px;padding:17px;text-align:center;background:#0d1016;color:#bfc5d0;cursor:pointer}.drop input{display:none}.drop strong{display:block;font-size:12px}.drop small{color:var(--muted);font-size:11px}
+.notice{border-left:3px solid #c3c8d2;background:#1a1e27;padding:12px 14px;border-radius:0 9px 9px 0;color:#c5cad4;font-size:11px;margin-top:15px}.status{font-size:12px;color:var(--muted);margin-top:13px;min-height:18px}.list{margin-top:14px;max-height:230px;overflow:auto}.item{display:flex;justify-content:space-between;gap:12px;padding:10px 2px;border-bottom:1px solid #252a34;font:11px ui-monospace,monospace}.item em{color:var(--muted);font-style:normal;overflow-wrap:anywhere}.item b{color:#dfe3eb}
+.side .card+.card{margin-top:18px}.step{display:flex;gap:11px;margin:15px 0}.num{width:24px;height:24px;flex:0 0 24px;border:1px solid #596171;border-radius:8px;display:grid;place-items:center;font-size:10px}.step b{display:block;font-size:11px}.step span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+footer{border-top:1px solid var(--line);margin-top:28px;padding-top:17px;display:flex;justify-content:space-between;gap:12px;color:#747d8c;font-size:10px;letter-spacing:.12em}
+.auth-screen{max-width:440px;margin:7vh auto 0}.auth-screen .card{padding:25px}.tabs{display:flex;gap:8px;margin:16px 0}.tabs button{flex:1}.hidden{display:none!important}.userbar{display:flex;align-items:center;gap:9px}.userbar span{color:var(--muted);font-size:11px}.mini{font-size:10px;color:var(--muted)}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.user-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #292d38;font-size:12px}.user-row small{display:block;color:var(--muted)}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#090b10;border:1px solid #292e39;border-radius:10px;padding:12px;color:#c8ced8;font-size:10px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.wrap{padding:17px 13px 35px}.hero{padding:28px 0 20px}.card{padding:16px}.top{align-items:flex-start}.admin-grid{grid-template-columns:1fr}.pill{font-size:9px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="mark">BS</div><div><b>BOY STUDIO</b><small>CREATIVE TOOL DIVISION</small></div></div>
+ <div class="userbar"><span id="userLabel">LOCAL WORKSPACE · V1</span><button class="btn secondary hidden" id="adminNav">ADMIN</button><button class="btn secondary hidden" id="logout">LOG OUT</button></div>
+</header>
+
+<section id="authView" class="auth-screen">
+ <div class="hero"><div class="eyebrow">BOY STUDIO / ACCOUNT ACCESS</div><h1>ANIMATION <span>SPOOFER</span></h1><p>Masuk untuk membuka workspace dan generator model animasi.</p></div>
+ <div class="card">
+  <h2 id="authTitle">SIGN IN</h2><p class="sub" id="authSub">Masuk ke akun lokal di browser ini.</p>
+  <div class="tabs"><button class="btn" id="showLogin">LOGIN</button><button class="btn secondary" id="showRegister">REGISTER</button></div>
+  <div id="setupNote" class="notice hidden">Belum ada administrator. Akun pertama yang dibuat akan menjadi administrator lokal.</div>
+  <label for="authUser">USERNAME</label><input id="authUser" autocomplete="username" maxlength="24" placeholder="username">
+  <label for="authPass">PASSWORD</label><input id="authPass" type="password" autocomplete="current-password" placeholder="Minimal 8 karakter">
+  <div id="confirmWrap" class="hidden"><label for="authConfirm">CONFIRM PASSWORD</label><input id="authConfirm" type="password" autocomplete="new-password" placeholder="Ulangi password"></div>
+  <div class="row" style="margin-top:18px"><button class="btn" id="authSubmit">LOGIN</button></div>
+  <div class="status" id="authStatus" aria-live="polite"></div>
+  <p class="hint">Penyimpanan lokal: akun hanya tersedia pada browser dan perangkat ini. Jangan gunakan password penting.</p>
+ </div>
+</section>
+
+<main id="appView" class="hidden">
+ <section class="hero"><div class="eyebrow">ASSET WORKFLOW / ANIMATION</div><h1>ANIMATION <span>SPOOFER</span></h1><p>Workspace untuk membaca data gerakan dari Animation ID yang dapat diakses atau file JSON / RBXMX, menganalisis keyframe, lalu membuat model KeyframeSequence.</p></section>
+ <div class="layout">
+  <main class="card">
+   <h2>01 / SOURCE ANIMATION</h2><p class="sub">Masukkan satu atau banyak Animation ID, satu ID per baris.</p>
+   <label for="ids">ANIMATION ID LIST</label><textarea id="ids" placeholder="1234567890&#10;2345678901&#10;3456789012"></textarea>
+   <div class="row" style="margin-top:10px"><button class="btn secondary" id="parse">CHECK ID LIST</button><button class="btn secondary" id="fetchIds">READ ANIMATION ID</button><button class="btn secondary" id="clear">CLEAR</button></div>
+   <label for="proxyUrl">OPTIONAL AUTHORIZED ASSET PROXY URL</label><input id="proxyUrl" placeholder="https://your-domain.example/roblox-animation?id=" autocomplete="url">
+   <div class="hint">Jika Roblox menolak akses langsung dari browser (CORS / izin aset), masukkan endpoint backend milikmu. Endpoint harus mengembalikan XML KeyframeSequence atau JSON keyframe; jangan masukkan cookie Roblox di sini.</div>
+   <div class="stats"><div class="stat"><b id="total">0</b><span>VALID IDS</span></div><div class="stat"><b id="dupes">0</b><span>DUPLICATES</span></div><div class="stat"><b id="files">0</b><span>DATA FILES</span></div></div>
+   <div class="list" id="list"><div class="hint">Daftar ID akan muncul di sini setelah diperiksa.</div></div>
+   <label>AUTHORIZED KEYFRAME DATA</label>
+   <label class="drop" for="datafile"><strong>＋ Import animation JSON / RBXMX / XML</strong><small>Unggah file animasi yang kamu miliki atau berhak gunakan</small><input id="datafile" type="file" accept=".json,.rbxmx,.xml,application/json,text/xml,application/xml" multiple></label>
+   <div class="hint">Parser membaca Keyframe, Time, Pose bertingkat, CFrame, EasingStyle, EasingDirection, Weight, Loop, dan Priority dari JSON atau XML RBXMX.</div>
+   <div class="stats"><div class="stat"><b id="keyframeCount">0</b><span>KEYFRAMES</span></div><div class="stat"><b id="poseCount">0</b><span>POSES</span></div><div class="stat"><b id="duration">0.00s</b><span>DURATION</span></div></div>
+   <div class="list" id="analysisList"><div class="hint">Hasil analisis gerakan akan muncul setelah data animasi dimuat.</div></div>
+   <div class="notice"><b>Format hasil:</b> generator menghasilkan file XML model Roblox berekstensi <b>.rbxmx</b>. Buka file tersebut di Roblox Studio, lalu gunakan Save to File untuk menyimpannya sebagai <b>.rbxm</b>. Generator browser ini tidak mengunduh atau membypass aset privat hanya dari Animation ID.</div>
+   <div class="row" style="margin-top:18px"><button class="btn" id="build" disabled>GENERATE RBXMX FILES</button><button class="btn secondary" id="exportBackup">EXPORT LOCAL BACKUP</button></div>
+   <div class="status" id="status" aria-live="polite">Menunggu input.</div>
+  </main>
+  <aside class="side">
+   <div class="card"><h2>02 / WORKFLOW</h2><p class="sub">Alur generator model animasi.</p>
+    <div class="step"><div class="num">01</div><div><b>Read Animation ID</b><span>Mencoba mengambil data melalui akses Roblox atau proxy resmi yang kamu sediakan.</span></div></div>
+    <div class="step"><div class="num">02</div><div><b>Import JSON / RBXMX</b><span>Parser membaca keyframe dan pose dari file.</span></div></div>
+    <div class="step"><div class="num">03</div><div><b>Analyze motion</b><span>Menghitung jumlah keyframe, pose, dan durasi gerakan.</span></div></div>
+    <div class="step"><div class="num">04</div><div><b>Generate RBXMX</b><span>Ekspor KeyframeSequence dengan struktur pose.</span></div></div>
+   </div>
+   <div class="card"><h2>03 / JSON DATA FORMAT</h2><p class="sub">Contoh struktur minimal yang diterima.</p>
+<pre>{
+  "name": "MyAnimation",
+  "keyframes": [
+    {
+      "name": "Keyframe",
+      "time": 0,
+      "poses": [
+        {
+          "name": "Torso",
+          "cframe": [0,0,0,1,0,0,0,1,0,0,0,1],
+          "children": []
+        }
+      ]
+    }
+  ]
+}</pre>
+    <p class="hint">CFrame wajib berupa 12 angka. Keyframe dan pose akan divalidasi sebelum file dibuat.</p>
+   </div>
+  </aside>
+ </div>
+</main>
+
+<section id="adminView" class="hidden">
+ <div class="hero"><div class="eyebrow">BOY STUDIO / LOCAL CONTROL</div><h1>ADMIN <span>CONSOLE</span></h1><p>Pengelolaan akun lokal yang tersimpan di browser ini.</p></div>
+ <div class="layout">
+  <div class="card"><h2>01 / USER MANAGEMENT</h2><p class="sub">Akun yang terdaftar pada penyimpanan browser ini.</p><div class="stats"><div class="stat"><b id="userCount">0</b><span>LOCAL USERS</span></div><div class="stat"><b id="adminCount">0</b><span>ADMINS</span></div><div class="stat"><b id="activeCount">0</b><span>ACTIVE</span></div></div><div id="userList"></div></div>
+  <div class="card"><h2>02 / LOCAL DATA</h2><p class="sub">Backup dan pemulihan data akun lokal.</p><div class="notice">Data hanya berada pada browser ini. Menghapus data situs/browser dapat menghilangkan seluruh akun. Backup file simpan di tempat aman.</div><div class="row" style="margin-top:16px"><button class="btn" id="adminBackup">DOWNLOAD BACKUP</button><label class="btn secondary" style="margin:0;cursor:pointer">RESTORE BACKUP<input id="restoreFile" type="file" accept=".json,application/json" style="display:none"></label></div><div class="status" id="adminStatus"></div></div>
+ </div>
+</section>
+
+<footer><span>BOY STUDIO © 2026</span><span>CHROME / SILVER INTERFACE · LOCAL V1</span></footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const DBKEY='boyStudioSpooferDB_v1', SESSIONKEY='boyStudioSpooferSession_v1';
+let ids=[],models=[],authMode='login',currentUser=null;
+
+function readDB(){try{return JSON.parse(localStorage.getItem(DBKEY))||{users:[],createdAt:new Date().toISOString()}}catch{return {users:[]}}}
+function saveDB(db){localStorage.setItem(DBKEY,JSON.stringify(db))}
+function session(){try{return JSON.parse(sessionStorage.getItem(SESSIONKEY))}catch{return null}}
+function setStatus(id,msg){$(id).textContent=msg}
+function bytesToHex(buffer){return [...new Uint8Array(buffer)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+async function hashPassword(password,saltHex){
+ const salt=saltHex?new Uint8Array(saltHex.match(/.{1,2}/g).map(x=>parseInt(x,16))):crypto.getRandomValues(new Uint8Array(16));
+ const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);
+ const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt,iterations:150000,hash:'SHA-256'},key,256);
+ return {salt:bytesToHex(salt),hash:bytesToHex(bits)};
+}
+function showAuth(mode){authMode=mode;const reg=mode==='register';$('authTitle').textContent=reg?'CREATE ACCOUNT':'SIGN IN';$('authSub').textContent=reg?'Buat akun untuk workspace lokal ini.':'Masuk ke akun lokal di browser ini.';$('confirmWrap').classList.toggle('hidden',!reg);$('authSubmit').textContent=reg?'REGISTER':'LOGIN';$('showLogin').className='btn '+(!reg?'':'secondary');$('showRegister').className='btn '+(reg?'':'secondary');$('setupNote').classList.toggle('hidden',readDB().users.length!==0);setStatus('authStatus','')}
+function showApp(user){currentUser=user;$('authView').classList.add('hidden');$('appView').classList.remove('hidden');$('adminView').classList.add('hidden');$('userLabel').textContent=user.username.toUpperCase()+' · '+user.role.toUpperCase();$('logout').classList.remove('hidden');$('adminNav').classList.toggle('hidden',user.role!=='admin')}
+function logout(){sessionStorage.removeItem(SESSIONKEY);currentUser=null;$('appView').classList.add('hidden');$('adminView').classList.add('hidden');$('logout').classList.add('hidden');$('adminNav').classList.add('hidden');$('authView').classList.remove('hidden');$('userLabel').textContent='LOCAL WORKSPACE · V1';$('authPass').value='';$('authConfirm').value='';showAuth('login')}
+$('showLogin').onclick=()=>showAuth('login');$('showRegister').onclick=()=>showAuth('register');
+$('authSubmit').onclick=async()=>{
+ const username=$('authUser').value.trim(),password=$('authPass').value,db=readDB();
+ if(!/^[a-zA-Z0-9_]{3,24}$/.test(username)){setStatus('authStatus','Username harus 3–24 karakter: huruf, angka, atau underscore.');return}
+ if(password.length<8){setStatus('authStatus','Password minimal 8 karakter.');return}
+ try{
+  if(authMode==='register'){
+   if(password!==$('authConfirm').value){setStatus('authStatus','Konfirmasi password tidak cocok.');return}
+   if(db.users.some(u=>u.username.toLowerCase()===username.toLowerCase())){setStatus('authStatus','Username sudah digunakan.');return}
+   const cred=await hashPassword(password),role=db.users.length===0?'admin':'user';
+   const user={id:crypto.randomUUID(),username,role,status:'active',salt:cred.salt,passwordHash:cred.hash,createdAt:new Date().toISOString()};
+   db.users.push(user);saveDB(db);sessionStorage.setItem(SESSIONKEY,JSON.stringify({userId:user.id}));showApp(user);setStatus('status',role==='admin'?'Akun pertama menjadi admin lokal.':'Akun berhasil dibuat.');
+  }else{
+   const user=db.users.find(u=>u.username.toLowerCase()===username.toLowerCase());
+   if(!user||user.status==='disabled'){setStatus('authStatus','Akun tidak ditemukan atau dinonaktifkan.');return}
+   const cred=await hashPassword(password,user.salt);
+   if(cred.hash!==user.passwordHash){setStatus('authStatus','Password salah.');return}
+   sessionStorage.setItem(SESSIONKEY,JSON.stringify({userId:user.id}));showApp(user);
+  }
+ }catch(e){setStatus('authStatus','Browser tidak mendukung proses keamanan lokal ini: '+e.message)}
+};
+$('logout').onclick=logout;
+$('adminNav').onclick=()=>{if(currentUser?.role!=='admin')return;$('appView').classList.add('hidden');$('adminView').classList.remove('hidden');renderAdmin()};
+function restoreSession(){const s=session(),u=readDB().users.find(x=>x.id===s?.userId&&x.status==='active');if(u)showApp(u);else logout()}
+
+function parseIds(){const raw=$('ids').value.split(/\s+/).map(x=>x.trim()).filter(Boolean),seen=new Set();let dup=0;ids=[];for(const x of raw){if(!/^\d{5,25}$/.test(x))continue;if(seen.has(x)){dup++;continue}seen.add(x);ids.push(x)}
+ $('total').textContent=ids.length;$('dupes').textContent=dup;$('files').textContent=models.length;
+ $('list').innerHTML=ids.length?ids.map((x,i)=>`<div class="item"><b>${String(i+1).padStart(2,'0')} · ${x}</b><em>ready to read</em></div>`).join(''):'<div class="hint">Tidak ada ID valid ditemukan.</div>';
+ setStatus('status',`${ids.length} ID valid · ${dup} duplikat diabaikan.`)}
+$('parse').onclick=parseIds;
+$('clear').onclick=()=>{$('ids').value='';ids=[];models=[];$('datafile').value='';$('total').textContent='0';$('dupes').textContent='0';$('files').textContent='0';$('keyframeCount').textContent='0';$('poseCount').textContent='0';$('duration').textContent='0.00s';$('analysisList').innerHTML='<div class="hint">Hasil analisis gerakan akan muncul setelah data animasi dimuat.</div>';$('list').innerHTML='<div class="hint">Daftar ID akan muncul di sini setelah diperiksa.</div>';$('build').disabled=true;setStatus('status','Input dibersihkan.')};
+
+function validatePose(p,path='pose'){
+ if(!p||typeof p!=='object'||Array.isArray(p))throw Error(`${path}: format pose tidak valid`);
+ if(!Array.isArray(p.cframe)||p.cframe.length!==12||!p.cframe.every(n=>Number.isFinite(Number(n))))throw Error(`${path}: CFrame wajib berisi tepat 12 angka valid agar gerakan dapat dibaca`);
+ if(p.children!==undefined&&!Array.isArray(p.children))throw Error(`${path}: children harus berupa array`);
+ (p.children||[]).forEach((child,i)=>validatePose(child,`${path}.children[${i}]`));
+}
+function validateModel(j){
+ if(!j||typeof j!=='object'||Array.isArray(j)||!String(j.name||'').trim()||!Array.isArray(j.keyframes))throw Error('JSON harus memiliki name dan array keyframes');
+ if(!j.keyframes.length)throw Error('Animasi tidak memiliki keyframe.');
+ j.keyframes.forEach((k,i)=>{if(!k||typeof k!=='object'||!Number.isFinite(Number(k.time)))throw Error(`Keyframe ${i+1}: time tidak valid`);if(k.poses!==undefined&&!Array.isArray(k.poses))throw Error(`Keyframe ${i+1}: poses harus berupa array`);(k.poses||[]).forEach((p,n)=>validatePose(p,`Keyframe ${i+1}, pose ${n+1}`))});
+}
+function xmlText(parent,tag){const el=parent.getElementsByTagName(tag)[0];return el?el.textContent.trim():''}
+function xmlProp(item,name){const props=item.getElementsByTagName('Properties')[0];if(!props)return null;for(const el of props.children){if(el.getAttribute('name')===name)return el}return null}
+function xmlNum(el,fallback=0){if(!el)return fallback;const n=Number(el.textContent.trim());return Number.isFinite(n)?n:fallback}
+function parseXmlPose(item){const name=xmlText(item,'string')||'Pose';const cf=xmlProp(item,'CFrame');let cframe=null;if(cf){const tags=['X','Y','Z','R00','R01','R02','R10','R11','R12','R20','R21','R22'];cframe=tags.map(t=>xmlNum(cf.getElementsByTagName(t)[0],t==='R00'||t==='R11'||t==='R22'?1:0))}
+ const out={name,cframe,easingStyle:xmlNum(xmlProp(item,'EasingStyle')),easingDirection:xmlNum(xmlProp(item,'EasingDirection')),weight:xmlNum(xmlProp(item,'Weight'),1),children:[]};
+ for(const child of item.children){if(child.tagName==='Item'&&child.getAttribute('class')==='Pose')out.children.push(parseXmlPose(child))}return out}
+function parseRbxmx(text,nameHint){const doc=new DOMParser().parseFromString(text,'application/xml');if(doc.querySelector('parsererror'))throw Error('XML tidak valid atau bukan RBXMX.');const seq=[...doc.getElementsByTagName('Item')].find(x=>x.getAttribute('class')==='KeyframeSequence');if(!seq)throw Error('Tidak ditemukan KeyframeSequence dalam XML.');const props=seq.getElementsByTagName('Properties')[0],name=xmlText(props,'string')||nameHint||'ImportedAnimation';const model={name,keyframes:[],loop:(xmlProp(seq,'Loop')?.textContent.trim()==='true'),priority:xmlNum(xmlProp(seq,'Priority'))};
+ for(const item of seq.children){if(item.tagName!=='Item'||item.getAttribute('class')!=='Keyframe')continue;const kprops=item.getElementsByTagName('Properties')[0];const k={name:xmlText(kprops,'string')||'Keyframe',time:xmlNum(xmlProp(item,'Time')),poses:[]};for(const child of item.children){if(child.tagName==='Item'&&child.getAttribute('class')==='Pose')k.poses.push(parseRbxmxPose(child))}model.keyframes.push(k)}validateModel(model);return model}
+function parseRbxmxPose(item){const props=item.getElementsByTagName('Properties')[0],name=xmlText(props,'string')||'Pose',cf=xmlProp(item,'CFrame');const tags=['X','Y','Z','R00','R01','R02','R10','R11','R12','R20','R21','R22'];const cframe=cf?tags.map(t=>xmlNum(cf.getElementsByTagName(t)[0],t==='R00'||t==='R11'||t==='R22'?1:0)):null;const out={name,cframe,easingStyle:xmlNum(xmlProp(item,'EasingStyle')),easingDirection:xmlNum(xmlProp(item,'EasingDirection')),weight:xmlNum(xmlProp(item,'Weight'),1),children:[]};for(const child of item.children)if(child.tagName==='Item'&&child.getAttribute('class')==='Pose')out.children.push(parseRbxmxPose(child));return out}
+function countPoses(poses){return (poses||[]).reduce((n,p)=>n+1+countPoses(p.children),0)}
+function showAnalysis(){let k=0,p=0,d=0;for(const m of models){k+=m.data.keyframes.length;p+=m.data.keyframes.reduce((n,f)=>n+countPoses(f.poses),0);d=Math.max(d,...m.data.keyframes.map(f=>Number(f.time)||0))}$('keyframeCount').textContent=k;$('poseCount').textContent=p;$('duration').textContent=d.toFixed(2)+'s';$('files').textContent=models.length;$('build').disabled=models.length===0;$('analysisList').innerHTML=models.length?models.map(m=>{const frames=m.data.keyframes.length,poses=m.data.keyframes.reduce((n,f)=>n+countPoses(f.poses),0),dur=Math.max(...m.data.keyframes.map(f=>Number(f.time)||0));const parts=[...new Set(m.data.keyframes.flatMap(f=>(f.poses||[]).flatMap(function walk(p){return [p.name,...(p.children||[]).flatMap(walk)]})))];return `<div class="item"><b>${safeText(m.name)}</b><em>${frames} frames · ${poses} poses · ${dur.toFixed(2)}s<br>Parts: ${safeText(parts.slice(0,12).join(', ')||'none')}${parts.length>12?' …':''}</em></div>`}).join(''):'<div class="hint">Belum ada data animasi valid.</div>'}
+async function loadAnimationFile(file){const txt=await file.text();if(file.name.toLowerCase().endsWith('.json')||txt.trim().startsWith('{')){const j=JSON.parse(txt);validateModel(j);return j}return parseRbxmx(txt,file.name.replace(/\.(rbxmx|xml)$/i,''))}
+$('datafile').addEventListener('change',async e=>{models=[];let errors=[];for(const f of e.target.files){try{const j=await loadAnimationFile(f);models.push({name:String(j.name),data:j,sourceName:f.name})}catch(err){errors.push(`${f.name}: ${err.message}`)}}showAnalysis();setStatus('status',errors.length?`${models.length} file valid. Gagal: ${errors.join(' | ')}`:`${models.length} data animasi berhasil dibaca dan dianalisis.`)});
+async function readAnimationId(id){const configuredProxy=$('proxyUrl').value.trim();const proxy=configuredProxy||(location.protocol==='http:'||location.protocol==='https:'?'/api/animation?id=':'');const url=proxy?proxy+encodeURIComponent(id):`https://assetdelivery.roblox.com/v1/asset/?id=${encodeURIComponent(id)}`;const response=await fetch(url,{method:'GET',headers:{'Accept':'application/xml,text/xml,application/json,*/*'}});if(!response.ok)throw Error(`HTTP ${response.status} saat mengambil aset.`);const textBody=await response.text();if(!textBody.trim())throw Error('Respons aset kosong.');let data;if(textBody.trim().startsWith('{')){data=JSON.parse(textBody);if(data.error)throw Error(data.error)}else data=parseRbxmx(textBody,`Animation_${id}`);validateModel(data);return data}
+$('fetchIds').onclick=async()=>{parseIds();if(!ids.length){setStatus('status','Masukkan Animation ID yang valid terlebih dahulu.');return}let ok=0,failed=[];$('fetchIds').disabled=true;setStatus('status','Mencoba membaca data animasi dari Roblox...');for(const id of ids){try{const data=await readAnimationId(id);models.push({name:data.name||`Animation_${id}`,data,sourceName:`Roblox ID ${id}`});ok++}catch(err){failed.push(`${id}: ${err.message}`)}}$('fetchIds').disabled=false;showAnalysis();setStatus('status',failed.length?`${ok} ID berhasil dibaca. ${failed.length} gagal: ${failed.join(' | ')}. Jika muncul CORS/izin, gunakan proxy backend resmi untuk aset yang boleh kamu akses.`:`Berhasil membaca ${ok} Animation ID dan menemukan data keyframe.`)};
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]))}
+function makeItem(className,props='',children=''){return `<Item class="${className}"><Properties>${props}</Properties>${children}</Item>`}
+function strProp(n,v){return `<string name="${n}">${esc(v)}</string>`}
+function numProp(n,v){const value=Number(v);if(!Number.isFinite(value))throw Error(`${n} harus berupa angka`);return `<double name="${n}">${value}</double>`}
+function cframe(v){const a=v||[0,0,0,1,0,0,0,1,0,0,0,1];if(!Array.isArray(a)||a.length!==12||!a.every(n=>Number.isFinite(Number(n))))throw Error('CFrame harus berupa array 12 angka valid');const names=['X','Y','Z','R00','R01','R02','R10','R11','R12','R20','R21','R22'];return `<CoordinateFrame name="CFrame">${names.map((n,i)=>`<${n}>${Number(a[i])}</${n}>`).join('')}</CoordinateFrame>`}
+function poseXml(p){const name=String(p.name||'Pose'),props=strProp('Name',name)+cframe(p.cframe)+`<token name="EasingStyle">${Number(p.easingStyle)||0}</token><token name="EasingDirection">${Number(p.easingDirection)||0}</token><float name="Weight">${Number.isFinite(Number(p.weight??1))?Number(p.weight??1):1}</float>`;return makeItem('Pose',props,(p.children||[]).map(poseXml).join(''))}
+function modelXml(m){const kfs=m.data.keyframes.map(k=>makeItem('Keyframe',strProp('Name',String(k.name||'Keyframe'))+numProp('Time',k.time),(k.poses||[]).map(poseXml).join(''))).join('');return `<?xml version="1.0" encoding="utf-8"?><roblox version="4"><Item class="KeyframeSequence"><Properties>${strProp('Name',m.name)}<bool name="Loop">${m.data.loop===true?'true':'false'}</bool><token name="Priority">${Number(m.data.priority)||0}</token></Properties>${kfs}</Item></roblox>`}
+function filename(s){return String(s).normalize('NFKD').replace(/[^a-zA-Z0-9_-]+/g,'_').replace(/^_+|_+$/g,'').slice(0,70)||'Animation'}
+$('build').onclick=()=>{
+ try{let done=0;models.forEach(m=>{const xml=modelXml(m),blob=new Blob([xml],{type:'application/xml'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename(m.name)+'.rbxmx';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);done++});setStatus('status',`${done} file RBXMX berhasil dibuat. Buka di Roblox Studio lalu Save to File sebagai RBXM.`)}
+ catch(e){setStatus('status','Gagal membuat model: '+e.message)}
+};
+function downloadJSON(data,name){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
+$('exportBackup').onclick=()=>downloadJSON({ids:$('ids').value,exportedAt:new Date().toISOString()},'boy-studio-workspace-backup.json');
+function renderAdmin(){
+ const db=readDB();$('userCount').textContent=db.users.length;$('adminCount').textContent=db.users.filter(u=>u.role==='admin').length;$('activeCount').textContent=db.users.filter(u=>u.status==='active').length;
+ $('userList').innerHTML=db.users.map(u=>`<div class="user-row"><div><b>${safeText(u.username)}</b><small>${u.role.toUpperCase()} · ${u.status.toUpperCase()}</small></div><div class="row"><button class="btn secondary" data-toggle="${u.id}">${u.status==='active'?'DISABLE':'ENABLE'}</button>${u.id!==currentUser.id?`<button class="btn danger" data-delete="${u.id}">DELETE</button>`:''}</div></div>`).join('')||'<p class="hint">Belum ada pengguna.</p>';
+ $('userList').querySelectorAll('[data-toggle]').forEach(b=>b.onclick=()=>{const d=readDB(),u=d.users.find(x=>x.id===b.dataset.toggle);if(!u)return;if(u.id===currentUser.id){setStatus('adminStatus','Admin yang sedang digunakan tidak dapat dinonaktifkan.');return}u.status=u.status==='active'?'disabled':'active';saveDB(d);renderAdmin();setStatus('adminStatus','Status akun diperbarui.')});
+ $('userList').querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{if(!confirm('Hapus akun ini dari browser?'))return;const d=readDB();d.users=d.users.filter(x=>x.id!==b.dataset.delete);saveDB(d);renderAdmin();setStatus('adminStatus','Akun dihapus dari penyimpanan lokal.')});
+}
+function safeText(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('adminBackup').onclick=()=>downloadJSON(readDB(),'boy-studio-local-users-backup.json');
+$('restoreFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!data||!Array.isArray(data.users)||!data.users.every(u=>u.id&&u.username&&u.passwordHash&&u.salt&&['admin','user'].includes(u.role)))throw Error('Format backup tidak valid');if(!confirm('Pulihkan backup? Data akun lokal saat ini akan diganti.'))return;saveDB(data);setStatus('adminStatus','Backup berhasil dipulihkan. Silakan login kembali jika sesi berubah.');renderAdmin()}catch(err){setStatus('adminStatus','Gagal restore: '+err.message)}finally{e.target.value=''}};
+showAuth('login');restoreSession();
+</script>
+</body>
+</html>
